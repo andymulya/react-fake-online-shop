@@ -1,14 +1,12 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 
-import { productApi } from './slices/productSlice'
+import { storeApi } from './slices/storeSlice'
 
 const store = configureStore({
     reducer: {
-        [productApi.reducerPath]: productApi.reducer
+        [storeApi.reducerPath]: storeApi.reducer
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(productApi.middleware),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(storeApi.middleware),
 })
-
-// setupListeners(store.dispatch)
 
 export default store
