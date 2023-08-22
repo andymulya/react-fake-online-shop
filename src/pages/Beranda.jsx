@@ -5,7 +5,7 @@ import Title from '../components/Title'
 export default function Beranda(){
 
     return(
-        <div className="px-3 flex flex-col gap-10">
+        <div className="px-5 flex flex-col gap-10">
             <div>
                 <Title nameTitle={"Category"} />
                 <div className="flex flex-row flex-wrap justify-center md:justify-start gap-5">
