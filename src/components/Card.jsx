@@ -22,7 +22,7 @@ const Body = ({ titleProduct, priceProduct, categoryProduct }) => {
             <h2 className="card-title">
                 <span className="text-sm">{ titleProduct }</span>
             </h2>
-            <span>{`$${priceProduct}`}</span>
+            <span className="font-semibold text-white">{`$${priceProduct}`}</span>
             <div className="card-actions justify-end">
                 <Badge titleBadge={ categoryProduct } />
             </div>
