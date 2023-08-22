@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export default function Dropdown({ children }){
     return (
-        <div className="dropdown dropdown-end">{ children }</div>
+        <div className="dropdown dropdown-end z-40">{ children }</div>
     )
 }
 

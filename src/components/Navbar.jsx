@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import Dropdown from './Dropdown'
+import iconAvatarDefault from '../assets/img/avatar_default.webp'
 
 const navItems = [
     {
@@ -43,7 +44,7 @@ export default function Navbar(){
                 <Dropdown>
                     <Dropdown.LabelDropdown>
                         <div className="w-10 rounded-full">
-                            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            <img src={ iconAvatarDefault } />
                         </div>
                     </Dropdown.LabelDropdown>
                     <Dropdown.ItemsDropdown navItems={navItems} />
