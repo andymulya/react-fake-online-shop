@@ -18,7 +18,7 @@ const Head = ({ children }) => {
 
 const Body = ({ titleProduct, priceProduct, categoryProduct }) => {
     return (
-        <div className="card-body flex flex-col justify-between bg-gradient-to-t from-cyan-600 to-white rounded-b-2xl">
+        <div className="card-body flex flex-col justify-between bg-gradient-to-t from-cyan-600 to-cyan-300 rounded-b-2xl">
             <h2 className="card-title">
                 <span className="text-sm">{ titleProduct }</span>
             </h2>
