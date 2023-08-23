@@ -5,6 +5,7 @@ import Beranda from '../pages/Beranda'
 import Profile from '../pages/Profile'
 import Cart from '../pages/Cart'
 import Settings from '../pages/Settings'
+import { Login } from '../pages/Login'
 
 const router  = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ const router  = createBrowserRouter([
                 element: <Settings />
             }
         ]
+    },
+    {
+        path: "login",
+        element: <Login />
     }
 ])
 
