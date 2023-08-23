@@ -1,14 +1,12 @@
-import { Outlet } from 'react-router-dom'
-
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-export default function Layout(){
+export default function LayoutNavAndFooter({ children }){
     return(
         <div>
             <Navbar />
             <div className="min-h-screen mt-24">
-                <Outlet />
+                { children }
             </div>
             <Footer />
         </div>
