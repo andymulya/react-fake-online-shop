@@ -3,7 +3,7 @@ import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuthLoginMutation } from "../redux/slices/storeSlice"
 import useSignInStatus from "../hooks/useSignInStatus"
-import CustomButton from "../components/CustomButtom"
+import ButtonSolid from "../components/ButtonSolid"
 import TextInput from "../components/TextInput"
 
 export function Login(){
@@ -37,7 +37,7 @@ export function Login(){
             <form onSubmit={ handleSignIn } className="flex flex-col">
                 <TextInput refInput={usernameRef} typeInput={"text"} placeholder={"Username"} />
                 <TextInput refInput={passRef} typeInput={"password"} placeholder={"Password"} />
-                <CustomButton nameButton={"Sign In"} />
+                <ButtonSolid nameButton={"Sign In"} />
             </form>
         </div>
     )

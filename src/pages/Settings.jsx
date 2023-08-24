@@ -1,6 +1,16 @@
+import { useNavigate } from "react-router-dom";
+import useSignInStatus from "../hooks/useSignInStatus";
 import LayoutNavAndFooter from "../layouts/LayoutNavAndFooter";
+import { useEffect } from "react";
 
 export default function Settings(){
+    const isSignIn = useSignInStatus()
+    const navigate = useNavigate()
+
+    useEffect(() =>{
+        if(!isSignIn) navigate('/login')
+    }, [isSignIn])
+
     return (
         <LayoutNavAndFooter>
             <h1>Halaman Settings</h1>
