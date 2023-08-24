@@ -3,6 +3,8 @@ import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuthLoginMutation } from "../redux/slices/storeSlice"
 import useSignInStatus from "../hooks/useSignInStatus"
+import CustomButton from "../components/CustomButtom"
+import TextInput from "../components/TextInput"
 
 export function Login(){
     const [authLogin] = useAuthLoginMutation()
@@ -12,7 +14,6 @@ export function Login(){
 
     const usernameRef = useRef("")
     const passRef = useRef("")
-    
 
     useEffect(() => {
         if(isSignIn) navigate('/')
@@ -34,15 +35,9 @@ export function Login(){
         <div>
             <h1>Login</h1>
             <form onSubmit={ handleSignIn } className="flex flex-col">
-                <label>
-                    <span>Username: </span>
-                    <input type="text" ref={ usernameRef } placeholder="Username" className="input input-bordered input-info w-full max-w-xs" />
-                </label>
-                <label>
-                    <span>Password: </span>
-                    <input type="password" ref={ passRef } placeholder="Password" className="input input-bordered input-info w-full max-w-xs" />
-                </label>
-                <button className="btn btn-primary w-32">Sign in</button>
+                <TextInput refInput={usernameRef} typeInput={"text"} placeholder={"Username"} />
+                <TextInput refInput={passRef} typeInput={"password"} placeholder={"Password"} />
+                <CustomButton nameButton={"Sign In"} />
             </form>
         </div>
     )
