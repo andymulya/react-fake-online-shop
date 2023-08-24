@@ -16,8 +16,11 @@ export const storeApi = createApi({
                 method: 'POST',
                 body,
             })
+        }),
+        getUserWithId: builder.query({
+            query: (id) => `users/${id}`
         })
     })
 })
 
-export const { useAuthLoginMutation, useGetAllProductsQuery, useGetAllProductsCategoriesQuery } = storeApi
+export const { useAuthLoginMutation, useGetAllProductsQuery, useGetAllProductsCategoriesQuery, useGetUserWithIdQuery } = storeApi

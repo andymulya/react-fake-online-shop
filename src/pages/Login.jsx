@@ -2,16 +2,22 @@ import { useRef } from "react"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuthLoginMutation } from "../redux/slices/storeSlice"
+import useSignInStatus from "../hooks/useSignInStatus"
 
 export function Login(){
     const [authLogin] = useAuthLoginMutation()
+    const isSignIn = useSignInStatus()
+
     const navigate = useNavigate()
+
     const usernameRef = useRef("")
     const passRef = useRef("")
+    
 
     useEffect(() => {
+        if(isSignIn) navigate('/')
         usernameRef.current.focus()
-    }, [])
+    }, [isSignIn])
 
     const handleSignIn = (event) => {
         event.preventDefault()
