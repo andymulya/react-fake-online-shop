@@ -2,7 +2,6 @@ import ProductList from '../components/beranda/ProductList'
 import CategoryList from '../components/beranda/CategoryList'
 import Title from '../components/Title'
 import LayoutNavAndFooter from '../layouts/LayoutNavAndFooter'
-import { useEffect } from 'react'
 
 export default function Beranda(){
 

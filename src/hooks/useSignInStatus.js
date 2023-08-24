@@ -2,16 +2,16 @@ import jwtDecode from "jwt-decode"
 import { useEffect, useState } from "react"
 import { useGetUserWithIdQuery } from "../redux/slices/storeSlice"
 
-const checkUser = (tokenDecode, data) => {
+const checkUserInData = (tokenDecode, data) => {
     return (tokenDecode.sub === data.id && tokenDecode.user === data.username)
 }
 
-const checkToken = (token) => {
+const checkTokenInLokalStorage = (token) => {
     if(token){
         const decode = jwtDecode(token)
         const { data, isSuccess } = useGetUserWithIdQuery(decode.sub)
         if(isSuccess){
-            return checkUser(decode, data)
+            return checkUserInData(decode, data)
         }
     }
 }
@@ -19,7 +19,7 @@ const checkToken = (token) => {
 const useSignInStatus = () => {
     const [isSign, setIsSign] = useState(false)
     const token = localStorage.getItem('token')
-    const isToken = checkToken(token)
+    const isToken = checkTokenInLokalStorage(token)
 
     useEffect(() => {
         if(isToken){
