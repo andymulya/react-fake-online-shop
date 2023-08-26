@@ -2,8 +2,8 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import Dropdown from './Dropdown'
 import iconAvatarDefault from '../assets/img/avatar_default.webp'
-import useSignInStatus from '../hooks/useSignInStatus'
 import ButtonOutline from './ButtonOutline'
+import { getToken } from '../services/localStorage'
 
 const navItems = [
     {
@@ -27,10 +27,9 @@ const navItems = [
 ]
 
 export default function Navbar(){
-    const isSignIn = useSignInStatus()
     const navigate = useNavigate()
 
-    const handleLogin = () => navigate('login')
+    const handleNavigateLogin = () => navigate('login')
 
     return(
         <div className="navbar mb-10 glass fixed top-0 right-0 left-0 z-50">
@@ -49,7 +48,7 @@ export default function Navbar(){
 
                 {/* Dropdown */}
                 {
-                    (isSignIn) ? 
+                    (getToken()) ? 
                     <Dropdown>
                         <Dropdown.LabelDropdown>
                             <div className="w-10 rounded-full">
@@ -57,7 +56,8 @@ export default function Navbar(){
                             </div>
                         </Dropdown.LabelDropdown>
                         <Dropdown.ItemsDropdown navItems={ navItems } />
-                    </Dropdown> : <ButtonOutline nameButton={"Login"} handleClick={ handleLogin } />  
+                    </Dropdown> : 
+                    <ButtonOutline nameButton={"Login"} handleClick={ handleNavigateLogin } />  
                 }
             </div>
         </div>

@@ -1,6 +1,6 @@
 import Badge from "./Badge"
 
-export default function Card({ children }){
+export default function CardProduct({ children }){
     return(
         <div className="card w-72 bg-base-100 shadow-md mb-5 group hover:shadow-lg transition-all rounded-t-2xl">
             { children }
@@ -30,5 +30,5 @@ const Body = ({ titleProduct, priceProduct, categoryProduct }) => {
     )
 }
 
-Card.Head = Head
-Card.Body = Body
+CardProduct.Head = Head
+CardProduct.Body = Body

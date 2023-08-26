@@ -5,7 +5,7 @@ export default function LayoutNavAndFooter({ children }){
     return(
         <div>
             <Navbar />
-            <div className="min-h-screen mt-24">
+            <div className="min-h-screen mt-24 px-3">
                 { children }
             </div>
             <Footer />
