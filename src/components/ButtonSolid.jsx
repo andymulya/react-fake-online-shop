@@ -1,3 +1,3 @@
-export default function ButtonSolid({ nameButton }){
-    return <button className="btn btn-primary w-32">{ nameButton }</button>
+export default function ButtonSolid({ nameButton, width }){
+    return <button className={`btn bg-cyan-500 text-base-100 text-center ${width}`}>{ nameButton }</button>
 }

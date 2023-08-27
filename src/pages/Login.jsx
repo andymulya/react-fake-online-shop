@@ -3,8 +3,9 @@ import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuthLoginMutation } from "../redux/slices/storeSlice"
 import ButtonSolid from "../components/ButtonSolid"
+import ButtonOutline from "../components/ButtonOutline"
 import TextInput from "../components/TextInput"
-import { getToken } from "../services/localStorage"
+import { getToken } from "../services/localStorageServices"
 import Loading from '../components/Loading'
 
 export function Login(){
@@ -17,7 +18,7 @@ export function Login(){
         if(getToken()) navigate('/')
     }, [])
 
-    const handleSignIn = (event) => {
+    const handleSubmitSignIn = (event) => {
         event.preventDefault()
         authLogin({ username: usernameRef.current.value, password: passRef.current.value })
         .unwrap()
@@ -28,15 +29,20 @@ export function Login(){
         .catch((error) => console.log(error)) 
     }
 
+    const handleSignUp = () => navigate('/register')
+
     return (getToken()) ?
-    <Loading /> :
-    <div>
-        <h1>Login</h1>
-        <form onSubmit={ handleSignIn } className="flex flex-col">
-            <TextInput refInput={usernameRef} typeInput={"text"} placeholder={"Username"} />
-            <TextInput refInput={passRef} typeInput={"password"} placeholder={"Password"} />
-            <ButtonSolid nameButton={"Sign In"} />
-        </form>
-    </div> 
+        <Loading /> :
+        <div>
+            <h1>Login</h1>
+            <form onSubmit={ handleSubmitSignIn } className="flex flex-col">
+                <TextInput refInput={usernameRef} typeInput={"text"} placeholder={"Username"} />
+                <TextInput refInput={passRef} typeInput={"password"} placeholder={"Password"} />
+                <ButtonSolid nameButton={"Sign In"} />
+            </form>
+            <ButtonOutline handleClick={handleSignUp}>
+                <span>Register</span>
+            </ButtonOutline>
+        </div> 
     
 }

@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router-dom";
-import LayoutNavAndFooter from "../layouts/LayoutNavAndFooter";
-import { useEffect } from "react";
-import { getToken } from "../services/localStorage";
+import { useNavigate } from "react-router-dom"
+import LayoutNavAndFooter from "../layouts/LayoutNavAndFooter"
+import { useEffect } from "react"
+import { getToken } from "../services/localStorageServices"
 
 export default function Settings(){
     const navigate = useNavigate()

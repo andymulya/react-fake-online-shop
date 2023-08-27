@@ -2,9 +2,11 @@ import Badge from "./Badge"
 
 export default function CardProduct({ children }){
     return(
-        <div className="card w-72 bg-base-100 shadow-md mb-5 group hover:shadow-lg transition-all rounded-t-2xl">
-            { children }
-        </div>
+        <Link>
+            <div className="card w-72 bg-base-100 shadow-md mb-5 group hover:shadow-lg transition-all rounded-t-2xl">
+                { children }
+            </div>
+        </Link>
     )
 }
 
