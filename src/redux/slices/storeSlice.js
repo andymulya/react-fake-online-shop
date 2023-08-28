@@ -7,7 +7,10 @@ export const storeApi = createApi({
         getAllProducts: builder.query({
             query: () => "products",
         }),
-        getAllProductsCategories: builder.query({
+        getProductWithId: builder.query({
+            query: (productId) => `products/${productId}`
+        }),
+        getAllCategories: builder.query({
             query: () => "products/categories"
         }),
         authLogin: builder.mutation({
@@ -30,4 +33,4 @@ export const storeApi = createApi({
     })
 })
 
-export const { useAuthLoginMutation, useGetAllProductsQuery, useGetAllProductsCategoriesQuery, useGetUserWithIdQuery, usePostUserMutation } = storeApi
+export const { useAuthLoginMutation, useGetAllProductsQuery, useGetProductWithIdQuery, useGetAllCategoriesQuery, useGetUserWithIdQuery, usePostUserMutation } = storeApi

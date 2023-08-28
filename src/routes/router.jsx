@@ -6,6 +6,7 @@ import Profile from '../pages/Profile'
 import Settings from '../pages/Settings'
 import { Login } from '../pages/Login'
 import { Register } from '../pages/Register'
+import DetailProduct from '../pages/DetailProduct'
 
 const router  = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ const router  = createBrowserRouter([
             {
                 path: "settings",
                 element: <Settings />
+            },
+            {
+                path: "product/:productId",
+                element: <DetailProduct />
             }
         ]
     },
