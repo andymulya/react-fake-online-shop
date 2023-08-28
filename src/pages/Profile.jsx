@@ -7,6 +7,7 @@ import { useEffect } from "react"
 import ProfileComponent from "../components/profile/ProfileComponent"
 import InfoUserComponent from "../components/profile/InfoUserComponent"
 import Title from '../components/Title'
+import ButtonBack from "../components/ButtonBack"
 
 export default function Profile(){
     const userId = getToken().sub
@@ -25,6 +26,7 @@ export default function Profile(){
             </div>
 
             <div className="flex justify-center">
+                <ButtonBack />
                 {
                     (isLoading) ?
                         <Loading /> : 

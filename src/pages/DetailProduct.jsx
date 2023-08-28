@@ -3,21 +3,16 @@ import LayoutNavAndFooter from "../layouts/LayoutNavAndFooter"
 import { useGetProductWithIdQuery } from "../redux/slices/storeSlice"
 import Loading from "../components/Loading"
 import ButtonSolid from "../components/ButtonSolid"
-import ButtonGhost from "../components/ButtonGhost"
-import iconBack from "../assets/img/back.png"
+import ButtonBack from "../components/ButtonBack"
 
 export default function DetailProduct(){
     const navigate = useNavigate()
     const { productId } = useParams()
     const { data, isLoading } = useGetProductWithIdQuery(productId)
 
-    const handleButtonBack = () => navigate(-1)
-
     return(
         <LayoutNavAndFooter>
-            <ButtonGhost handleClick={ handleButtonBack }>
-                <img src={iconBack} alt="back" className="w-[40px]" />
-            </ButtonGhost>
+            <ButtonBack />
             {
                 (isLoading) ?
                     <Loading /> : 
