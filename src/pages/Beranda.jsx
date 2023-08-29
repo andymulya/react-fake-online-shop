@@ -2,9 +2,21 @@ import ProductList from '../components/beranda/ProductList'
 import CategoryList from '../components/beranda/CategoryList'
 import Title from '../components/Title'
 import LayoutNavAndFooter from '../layouts/LayoutNavAndFooter'
+import { getToken } from '../services/localStorageServices'
+import { useDispatch } from 'react-redux'
+import { addInitialState } from '../redux/slices/cartSlice'
+import { useEffect } from 'react'
 
 export default function Beranda(){
+    const token = getToken()
+    const dispatch = useDispatch()
 
+    useEffect(() => {
+        if(token){
+            const getCart = JSON.parse(localStorage.getItem(token.sub)) || []
+            dispatch(addInitialState(getCart))
+        }
+    }, [])
     return(
         <LayoutNavAndFooter>
             <div className="flex flex-col gap-10">

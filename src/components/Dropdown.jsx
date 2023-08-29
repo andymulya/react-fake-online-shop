@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom"
 
 import ButtonOutline from '../components/ButtonOutline'
 import iconExit from '../assets/img/exit.png'
+import { useDispatch } from "react-redux"
+import { removeAllCart } from "../redux/slices/cartSlice"
 
 export default function Dropdown({ children }){
     return (
@@ -16,10 +18,12 @@ const LabelDropdown = ({ children }) => {
 }
 
 const ItemsDropdown = ({ navItems }) => {
+    const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const handleLogOut = () => {
         navigate('/')
+        dispatch(removeAllCart())
         localStorage.removeItem('token')
     }
 
