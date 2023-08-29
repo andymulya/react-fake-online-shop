@@ -24,11 +24,15 @@ export const cartSlice = createSlice({
                 findItemInCart.qty = action.payload.counter
             }
         },
+        removeItemById(state, action){
+            const findIndexItem = state.findIndex((cart) => cart.id == action.payload)
+            if(findIndexItem != -1) state.splice(findIndexItem, 1)
+        },
         removeAllItemCart(state){
             state.splice(0)
         },
     }
 })
 
-export const { addCart, removeAllCart, addInitialState, editValueQtyItemById } = cartSlice.actions
+export const { addCart, removeAllItemCart, removeItemById, addInitialState, editValueQtyItemById } = cartSlice.actions
 export default cartSlice.reducer

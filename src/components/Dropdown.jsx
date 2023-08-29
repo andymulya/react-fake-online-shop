@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import ButtonOutline from '../components/ButtonOutline'
 import iconExit from '../assets/img/exit.png'
 import { useDispatch } from "react-redux"
-import { removeAllCart } from "../redux/slices/cartSlice"
+import { removeAllItemCart } from "../redux/slices/cartSlice"
 
 export default function Dropdown({ children }){
     return (
@@ -23,7 +23,7 @@ const ItemsDropdown = ({ navItems }) => {
 
     const handleLogOut = () => {
         navigate('/')
-        dispatch(removeAllCart())
+        dispatch(removeAllItemCart())
         localStorage.removeItem('token')
     }
 

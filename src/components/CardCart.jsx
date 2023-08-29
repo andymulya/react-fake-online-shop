@@ -1,6 +1,7 @@
 import QtyComponent from "./QtyComponent"
 
 export default function CardCart({ title, price, image, qty, idItem }){
+    
     return (
         <div className="flex flex-col items-left gap-4 mt-3">
             <div className="flex items-center gap-3">

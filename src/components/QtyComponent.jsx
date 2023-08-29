@@ -1,23 +1,31 @@
 import { useEffect, useState } from "react"
 import ButtonCounter from "./ButtonCounter"
 import { useDispatch, useSelector } from "react-redux"
-import { editValueQtyItemById } from "../redux/slices/cartSlice"
+import { editValueQtyItemById, removeItemById } from "../redux/slices/cartSlice"
 import { getToken } from "../services/localStorageServices"
 
 export default function QtyComponent({ qty, idItem }){
-    let [ counter, setCounter ] = useState(qty)
     const carts = useSelector((state) => state.cart)
+    let [ counter, setCounter ] = useState(qty)
     const dispatch = useDispatch()
     const convertCartToJson = JSON.stringify(carts)
 
     useEffect(() => {
-        if(counter !== 0) {
-            dispatch(editValueQtyItemById({
-                idItem,
-                counter
-            }))
+        if(getToken()){
+            if(counter !== 0) {
+                dispatch(editValueQtyItemById({
+                    idItem,
+                    counter
+                }))
+            }else{
+                dispatch(removeItemById(idItem))
+            }
         }
     }, [counter])
+
+    useEffect(() => {
+        setCounter(qty)
+    }, [qty])
 
     if(getToken()) localStorage.setItem(getToken().sub, convertCartToJson)
     
@@ -31,9 +39,9 @@ export default function QtyComponent({ qty, idItem }){
 
     return(
         <div className="flex flex-row items-center gap-2">
-            <ButtonCounter nameButton={"+"} handleOnclick={ handleButtonPlus } />
-            <p>{ counter }</p>
             <ButtonCounter nameButton={"-"} handleOnclick={ handleButtonMin } />
+            <p>{ counter }</p>
+            <ButtonCounter nameButton={"+"} handleOnclick={ handleButtonPlus } />
         </div>
     )
 }
