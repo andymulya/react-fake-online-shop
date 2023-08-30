@@ -2,7 +2,7 @@ import ButtonSmallCircle from "./ButtonSmallCircle"
 import QtyComponent from "./QtyComponent"
 import iconDelete from '../assets/img/delete.png'
 import { useDispatch } from "react-redux"
-import { removeItemById } from "../redux/slices/cartSlice"
+import { removeAllItemCart, removeItemById } from "../redux/slices/cartSlice"
 
 export default function CardCart({ title, price, image, qty, idItem }){
     
