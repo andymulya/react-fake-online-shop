@@ -11,7 +11,7 @@ export default function Modal({ titleCart, children, handleClick, idModal, nameB
                 <form method="dialog" className="modal-box max-h-[400px]">
                     <h3 className="font-bold text-lg uppercase border-b-2 mb-7">{ titleCart }</h3>
                     { children }
-                    <div className="flex flex-row justify-between font-bold uppercase text-sm border-t-2 pt-3">
+                    <div className="flex flex-row justify-between font-bold uppercase text-sm border-t-2 pt-3 mt-7">
                         <label>Result Price : </label>
                         <span>${ currentPrice }</span>
                     </div>
