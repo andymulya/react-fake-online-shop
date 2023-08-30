@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import ButtonCounter from "./ButtonCounter"
+import ButtonSmallCircle from "./ButtonSmallCircle"
 import { useDispatch, useSelector } from "react-redux"
 import { editValueQtyItemById, removeItemById } from "../redux/slices/cartSlice"
 import { getToken } from "../services/localStorageServices"
@@ -39,9 +39,9 @@ export default function QtyComponent({ qty, idItem }){
 
     return(
         <div className="flex flex-row items-center gap-2">
-            <ButtonCounter nameButton={"-"} handleOnclick={ handleButtonMin } />
+            <ButtonSmallCircle nameButton={"-"} handleOnclick={ handleButtonMin } />
             <p>{ counter }</p>
-            <ButtonCounter nameButton={"+"} handleOnclick={ handleButtonPlus } />
+            <ButtonSmallCircle nameButton={"+"} handleOnclick={ handleButtonPlus } />
         </div>
     )
 }
