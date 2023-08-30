@@ -16,7 +16,7 @@ export const cartSlice = createSlice({
             }
         },
         addInitialState(state, action){
-            return state = action.payload
+            state = action.payload
         },
         editValueQtyItemById(state, action){
             const findItemInCart = state.find((state) => state.id == action.payload.idItem)
