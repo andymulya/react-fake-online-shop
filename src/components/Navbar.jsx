@@ -32,7 +32,7 @@ export default function Navbar(){
     const handleNavigateLogin = () => navigate('/login')
     const handleShowModalCarts = () => window.my_cart.showModal()
     
-    const resultPriceItemInCart  = carts.map((cart) => {
+    const resultPriceItemInCart = carts.map((cart) => {
         const priceArr = []
         const result = cart.price * cart.qty
         return result
@@ -64,10 +64,10 @@ export default function Navbar(){
                 {/* Dropdown */}
                 {
                     (token) ? 
-                    <div className="flex justify-center">
+                    <div className="flex justify-center ml-2">
                         <Modal titleCart={"Carts"} currentPrice={ currentPrice } handleClick={handleShowModalCarts} idModal={"my_cart"} nameButton={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>}>
                             {
-                               (carts.lenght > 0) ? carts.map((cart) => <CardCart key={cart.id} title={cart.title} price={cart.price} image={cart.image} qty={cart.qty} idItem={cart.id} />) : <h1>cart kosong</h1>
+                               (carts.length > 0) ? carts.map((cart) => <CardCart key={cart.id} title={cart.title} price={cart.price} image={cart.image} qty={cart.qty} idItem={cart.id} />) : <h1>cart kosong</h1>
                             }
                         </Modal>
                         <Dropdown>

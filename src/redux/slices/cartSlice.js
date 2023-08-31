@@ -8,9 +8,9 @@ export const cartSlice = createSlice({
     initialState: JSON.parse(localStorage.getItem(token.sub)) || [],
     reducers: {
         addCart(state, action){
-            const itemInCart = state.find((item) => item.id == action.payload.id)
-            if(itemInCart){
-                itemInCart.qty++
+            const findItemInCart = state.find((item) => item.id == action.payload.id)
+            if(findItemInCart){
+                findItemInCart.qty++
             }else{
                 state.push(action.payload)
             }
