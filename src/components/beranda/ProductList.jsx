@@ -1,14 +1,18 @@
 import CardProduct from "../CardProduct"
 import { useGetAllProductsQuery } from '../../redux/slices/storeSlice'
 import Loading from "../Loading"
+import { useSelector } from "react-redux"
 
 export default function ProductList(){
+    const searchInput = useSelector((state) => state.search)
     const { data, isLoading } = useGetAllProductsQuery()
+
+    const filteredData = (data) && data.filter((products) => (searchInput.isEmpty) ? products : products.title.toLowerCase().includes(searchInput))
 
     if(isLoading) return <Loading />
 
     return (data) ?
-        data.map((product) => {
+        filteredData.map((product) => {
             const { id, title, price, category, image } = product
 
             return(

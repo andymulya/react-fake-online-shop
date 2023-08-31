@@ -7,8 +7,10 @@ import Modal from './Modal'
 import { getToken } from '../services/localStorageServices'
 import ButtonGhost from './ButtonGhost'
 import CardCart from './CardCart'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
+import Search from './Search'
+import { getInputSearch } from '../redux/slices/searchSlice'
 
 const navItems = [
     {
@@ -26,26 +28,23 @@ const navItems = [
 
 export default function Navbar(){
     const carts = useSelector((state) => state.cart)
+    const searchInput = useSelector((state) => state.search)
+    const dispatch = useDispatch()
     const token = getToken()
     const navigate = useNavigate()
 
+
     const handleNavigateLogin = () => navigate('/login')
     const handleShowModalCarts = () => window.my_cart.showModal()
-    
-    const resultPriceItemInCart = carts.map((cart) => {
-        const priceArr = []
-        const result = cart.price * cart.qty
-        return result
-    })
 
-    const currentPrice = resultPriceItemInCart.reduce((acc, currentValue) => {
-        return acc + currentValue
+    const currentPrice = carts.reduce((acc, currentValue) => {
+        return acc + (currentValue.price * currentValue.qty)
     },0)
 
     useEffect(() => {
         if(token) localStorage.setItem(token.sub, JSON.stringify(carts))
     }, [carts])
-    
+
     return(
         <div className="navbar mb-10 glass fixed top-0 right-0 left-0 z-50">
 
@@ -56,10 +55,14 @@ export default function Navbar(){
 
             <div className="navbar-end">
 
-                {/* Search */}
+                {/* Input Search */}
+                <Search value={ searchInput } handleInputSearch={(e) => dispatch(getInputSearch(e.target.value.toLowerCase()))}/>
+
+                {/* Button Search */}
                 <ButtonGhost handleClick={() => {}}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                 </ButtonGhost>
+
 
                 {/* Dropdown */}
                 {

@@ -33,12 +33,6 @@ export default function DetailProduct(){
         }
     }
 
-    // useEffect(() => {
-    //     if(token){
-    //         localStorage.setItem(token.sub, JSON.stringify(carts))
-    //     }
-    // }, [carts])
-
     return(
         <LayoutNavAndFooter>
 
