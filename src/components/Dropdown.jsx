@@ -4,6 +4,7 @@ import ButtonOutline from '../components/ButtonOutline'
 import iconExit from '../assets/img/exit.png'
 import { useDispatch } from "react-redux"
 import { removeAllItemCart } from "../redux/slices/cartSlice"
+import { resetInitialState } from "../redux/slices/searchSlice"
 
 export default function Dropdown({ children }){
     return (
@@ -24,6 +25,7 @@ const ItemsDropdown = ({ navItems }) => {
     const handleLogOut = () => {
         navigate('/')
         dispatch(removeAllItemCart())
+        dispatch(resetInitialState())
         localStorage.removeItem('token')
     }
 
