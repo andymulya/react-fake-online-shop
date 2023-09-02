@@ -7,6 +7,7 @@ import Settings from '../pages/Settings'
 import { Login } from '../pages/Login'
 import { Register } from '../pages/Register'
 import DetailProduct from '../pages/DetailProduct'
+import Cart from '../pages/Cart'
 
 const router  = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ const router  = createBrowserRouter([
             {
                 path: "profile",
                 element: <Profile />
+            },
+            {
+                path: "cart",
+                element: <Cart />
             },
             {
                 path: "settings",

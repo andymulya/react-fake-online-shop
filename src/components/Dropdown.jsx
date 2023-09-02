@@ -2,9 +2,10 @@ import { Link, useNavigate } from "react-router-dom"
 
 import ButtonOutline from '../components/ButtonOutline'
 import iconExit from '../assets/img/exit.png'
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { removeAllItemCart } from "../redux/slices/cartSlice"
 import { resetInitialState } from "../redux/slices/searchSlice"
+import Indicator from "./Indicator"
 
 export default function Dropdown({ children }){
     return (
@@ -19,6 +20,7 @@ const LabelDropdown = ({ children }) => {
 }
 
 const ItemsDropdown = ({ navItems }) => {
+    const carts = useSelector((state) => state.cart)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -29,18 +31,35 @@ const ItemsDropdown = ({ navItems }) => {
         localStorage.removeItem('token')
     }
 
+    const currentQty = carts.reduce((acc, currentValue) => {
+        return acc + currentValue.qty
+    }, 0)
+
     return (
         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             {
                 navItems.map((item, i) => {
-                    return (
-                        <li key={i}>
-                            <Link to={item.link} className="flex items-center gap-3 hover:bg-cyan-600 hover:text-base-100">
-                                <span>{item.icon}</span>
-                                <span>{item.nameNav}</span>
-                            </Link>
-                        </li>
-                    )
+                    if(item.nameNav === "Cart"){
+                        return (
+                            <li key={i}>
+                                <Link to={item.link} className="flex items-center gap-3 hover:bg-cyan-600 hover:text-base-100">
+                                    <Indicator value={ currentQty }>
+                                        <span>{item.icon}</span>
+                                        <span>{item.nameNav}</span>
+                                    </Indicator>
+                                </Link>
+                            </li>
+                        )
+                    }else{
+                        return (
+                            <li key={i}>
+                                <Link to={item.link} className="flex items-center gap-3 hover:bg-cyan-600 hover:text-base-100">
+                                    <span>{item.icon}</span>
+                                    <span>{item.nameNav}</span>
+                                </Link>
+                            </li>
+                        )
+                    }
                 })
             }
             <li>

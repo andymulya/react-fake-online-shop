@@ -1,7 +1,7 @@
 export default function Indicator({ value, children }){
     return (
         <div className="indicator">
-            <span className="indicator-item indicator-bottom indicator-start badge badge-secondary top-6 left-2">{ value }</span> 
+            <span className="indicator-item indicator-end badge badge-secondary top-3 -right-24">{ value }</span> 
             { children }
         </div>
     )

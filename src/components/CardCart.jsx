@@ -1,14 +1,25 @@
-import ButtonSmallCircle from "./ButtonSmallCircle"
 import QtyComponent from "./QtyComponent"
 import iconDelete from '../assets/img/delete.png'
-import { useDispatch } from "react-redux"
-import { removeAllItemCart, removeItemById } from "../redux/slices/cartSlice"
+import { useDispatch, useSelector } from "react-redux"
+import { removeItemById } from "../redux/slices/cartSlice"
+import { useEffect } from "react"
+import { handleIsTrigger } from "../redux/slices/triggerSlice"
+import ButtonSolid from "./ButtonSolid"
 
 export default function CardCart({ title, price, image, qty, idItem }){
-    
     const dispatch = useDispatch()
 
-    const handleDeleteItem = () => dispatch(removeItemById(idItem))
+    const handleDeleteItem = () => {
+        dispatch(handleIsTrigger(true))
+        dispatch(removeItemById(idItem))
+    }
+
+    useEffect(() => {
+        if(qty == 0){
+            dispatch(handleIsTrigger(true))
+            dispatch(removeItemById(idItem))
+        }
+    }, [qty])
 
     return (
         <div className="flex flex-col items-left gap-4 mt-3">
@@ -21,9 +32,10 @@ export default function CardCart({ title, price, image, qty, idItem }){
 
                 <div className="flex gap-5">
                     <QtyComponent qty={ qty } idItem={ idItem } />
-                    <div className="bg-red-500 rounded-full p-2 cursor-pointer" onClick={ handleDeleteItem }>
+                
+                    <ButtonSolid handleOnClick={ handleDeleteItem } style={"bg-red-600 rounded-full btn-sm hover:bg-red-700"}>
                         <img src={iconDelete} className="w-[20px] h-[20px]" />
-                    </div>
+                    </ButtonSolid>
                 </div>
             </div>
         </div>

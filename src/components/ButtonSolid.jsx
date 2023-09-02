@@ -1,3 +1,3 @@
-export default function ButtonSolid({ nameButton, width }){
-    return <button className={`btn bg-cyan-500 text-base-100 text-center ${width}`}>{ nameButton }</button>
+export default function ButtonSolid({ children, style, handleOnClick }){
+    return <button className={`btn text-base-100 text-center ${style}`} onClick={handleOnClick}>{ children }</button>
 }

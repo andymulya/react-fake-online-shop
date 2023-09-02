@@ -1,11 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getToken } from '../../services/localStorageServices'
-
-const token = getToken() || ''
 
 export const cartSlice = createSlice({
     name: 'cart',
-    initialState: JSON.parse(localStorage.getItem(token.sub)) || [],
+    initialState: [],
     reducers: {
         addCart(state, action){
             const findItemInCart = state.find((item) => item.id == action.payload.id)

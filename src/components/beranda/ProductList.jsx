@@ -7,7 +7,7 @@ export default function ProductList(){
     const searchInput = useSelector((state) => state.search)
     const { data, isLoading } = useGetAllProductsQuery()
 
-    const filteredData = (data) && data.filter((products) => (searchInput.isEmpty) ? products : products.title.toLowerCase().includes(searchInput))
+    const filteredData = (data) && data.filter((products) => (searchInput.isEmpty) ? products : products.title.toLowerCase().includes(searchInput) || products.category.toLowerCase().includes(searchInput))
 
     if(isLoading) return <Loading />
 

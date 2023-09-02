@@ -11,12 +11,13 @@ export default function Beranda(){
     const token = getToken()
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        if(token){
-            const getCart = JSON.parse(localStorage.getItem(token.sub)) || []
-            dispatch(addInitialState(getCart))
-        }
-    }, [])
+    // useEffect(() => {
+    //     if(token){
+    //         const getCart = JSON.parse(localStorage.getItem(token.sub)) || []
+    //         dispatch(addInitialState(getCart))
+    //     }
+    // }, [])
+
     return(
         <LayoutNavAndFooter>
             <div className="flex flex-col gap-10">
