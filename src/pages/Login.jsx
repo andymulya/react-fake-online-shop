@@ -39,7 +39,7 @@ export function Login(){
             <form onSubmit={ handleSubmitSignIn } className="flex flex-col gap-5">
                 <TextInput refInput={usernameRef} typeInput={"text"} placeholder={"Username"} />
                 <TextInput refInput={passRef} typeInput={"password"} placeholder={"Password"} />
-                <ButtonSolid style={"bg-[#146C94] hover:bg-cyan-700"}>Login</ButtonSolid>
+                <ButtonSolid style={"bg-[#146C94] hover:bg-cyan-700 text-base-100"}>Login</ButtonSolid>
             </form>
             <ButtonOutline handleClick={handleSignUp}>
                 <span>Sign Up</span>

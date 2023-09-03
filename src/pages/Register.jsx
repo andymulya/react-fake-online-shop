@@ -73,7 +73,7 @@ export function Register(){
                     <TextInput refInput={zipCodeRef} typeInput={"number"} placeholder={"Zip Code"} />
                 </div>
                 <TextInput refInput={phoneRef} typeInput={"text"} placeholder={"Phone"} />
-                <ButtonSolid style={"bg-[#146C94] hover:bg-cyan-700"}>Register</ButtonSolid>
+                <ButtonSolid style={"bg-[#146C94] hover:bg-cyan-700 text-base-100"}>Register</ButtonSolid>
             </form>
             <Link to={'/login'} className="text-sm">You have an account?</Link>
         </LayoutSign>
