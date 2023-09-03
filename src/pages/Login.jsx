@@ -1,9 +1,8 @@
 import { useRef } from "react"
 import { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useAuthLoginMutation } from "../redux/slices/storeSlice"
 import ButtonSolid from "../components/ButtonSolid"
-import ButtonOutline from "../components/ButtonOutline"
 import TextInput from "../components/TextInput"
 import { getToken } from "../services/localStorageServices"
 import Loading from '../components/Loading'
@@ -30,8 +29,6 @@ export function Login(){
         .catch((error) => console.log(error)) 
     }
 
-    const handleSignUp = () => navigate('/register')
-
     return (getToken()) ?
         <Loading /> :
         <LayoutSign>
@@ -41,8 +38,6 @@ export function Login(){
                 <TextInput refInput={passRef} typeInput={"password"} placeholder={"Password"} />
                 <ButtonSolid style={"bg-[#146C94] hover:bg-cyan-700 text-base-100"}>Login</ButtonSolid>
             </form>
-            <ButtonOutline handleClick={handleSignUp}>
-                <span>Sign Up</span>
-            </ButtonOutline>
+            <Link to={'/register'} className="text-sm font-semibold text-[#146C94] uppercase hover:underline">Sign Up</Link>
         </LayoutSign>
 }

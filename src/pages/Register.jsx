@@ -75,6 +75,6 @@ export function Register(){
                 <TextInput refInput={phoneRef} typeInput={"text"} placeholder={"Phone"} />
                 <ButtonSolid style={"bg-[#146C94] hover:bg-cyan-700 text-base-100"}>Register</ButtonSolid>
             </form>
-            <Link to={'/login'} className="text-sm">You have an account?</Link>
+            <Link to={'/login'} className="text-sm font-semibold text-[#146C94] hover:underline">You have an account?</Link>
         </LayoutSign>
 }
