@@ -7,6 +7,7 @@ import ButtonOutline from "../components/ButtonOutline"
 import TextInput from "../components/TextInput"
 import { getToken } from "../services/localStorageServices"
 import Loading from '../components/Loading'
+import LayoutSign from "../layouts/LayoutSign"
 
 export function Login(){
     const [authLogin] = useAuthLoginMutation()
@@ -33,16 +34,15 @@ export function Login(){
 
     return (getToken()) ?
         <Loading /> :
-        <div>
-            <h1>Login</h1>
-            <form onSubmit={ handleSubmitSignIn } className="flex flex-col">
+        <LayoutSign>
+            <h1 className="font-semibold text-2xl uppercase">Sing In</h1>
+            <form onSubmit={ handleSubmitSignIn } className="flex flex-col gap-5">
                 <TextInput refInput={usernameRef} typeInput={"text"} placeholder={"Username"} />
                 <TextInput refInput={passRef} typeInput={"password"} placeholder={"Password"} />
-                <ButtonSolid style={"bg-cyan-500 hover:bg-cyan-600"}>Login</ButtonSolid>
+                <ButtonSolid style={"bg-[#146C94] hover:bg-cyan-700"}>Login</ButtonSolid>
             </form>
             <ButtonOutline handleClick={handleSignUp}>
-                <span>Register</span>
+                <span>Sign Up</span>
             </ButtonOutline>
-        </div> 
-    
+        </LayoutSign>
 }

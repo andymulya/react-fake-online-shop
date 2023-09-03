@@ -5,6 +5,7 @@ import ButtonSolid from "../components/ButtonSolid"
 import { getToken } from "../services/localStorageServices"
 import { Link, useNavigate } from "react-router-dom"
 import Loading from "../components/Loading"
+import LayoutSign from "../layouts/LayoutSign"
 
 export function Register(){
     const [postUser] = usePostUserMutation()
@@ -56,20 +57,24 @@ export function Register(){
 
     return (getToken()) ?
         <Loading /> :
-        <div>
-            <h1>Register</h1>
-            <form onSubmit={handleSubmitSignUp} className="flex flex-col">
+        <LayoutSign>
+            <h1 className="font-semibold text-2xl uppercase">Sign Up</h1>
+            <form onSubmit={handleSubmitSignUp} className="flex flex-col gap-3">
                 <TextInput refInput={usernameRef} typeInput={"text"} placeholder={"Username"} />
                 <TextInput refInput={passwordRef} typeInput={"password"} placeholder={"Password"} />
-                <TextInput refInput={firstNameRef} typeInput={"text"} placeholder={"First Name"} />
-                <TextInput refInput={lastNameRef} typeInput={"text"} placeholder={"Last Name"} />
+                <div className="flex flex-row gap-3 max-w-xs">
+                    <TextInput refInput={firstNameRef} typeInput={"text"} placeholder={"First Name"} />
+                    <TextInput refInput={lastNameRef} typeInput={"text"} placeholder={"Last Name"} />
+                </div>
                 <TextInput refInput={emailRef} typeInput={"email"} placeholder={"Email"} />
                 <TextInput refInput={cityRef} typeInput={"text"} placeholder={"City"} />
-                <TextInput refInput={streetRef} typeInput={"text"} placeholder={"Street"} />
-                <TextInput refInput={zipCodeRef} typeInput={"number"} placeholder={"Zip Code"} />
+                <div className="flex flex-row gap-3 max-w-xs">
+                    <TextInput refInput={streetRef} typeInput={"text"} placeholder={"Street"} />
+                    <TextInput refInput={zipCodeRef} typeInput={"number"} placeholder={"Zip Code"} />
+                </div>
                 <TextInput refInput={phoneRef} typeInput={"text"} placeholder={"Phone"} />
-                <ButtonSolid nameButton={"Sign Up"} />
+                <ButtonSolid style={"bg-[#146C94] hover:bg-cyan-700"}>Register</ButtonSolid>
             </form>
-            <Link to={'/login'}>You have an account?</Link>
-        </div>
+            <Link to={'/login'} className="text-sm">You have an account?</Link>
+        </LayoutSign>
 }
