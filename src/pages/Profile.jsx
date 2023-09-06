@@ -21,8 +21,8 @@ export default function Profile(){
     return(
         <LayoutNavAndFooter>
             <ButtonBack />
-
-            <div className="mt-5">
+            
+            <div className="mt-5 px-5">
                 <Title nameTitle={"Profile"}/>
                 <p className="text-xs mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut a id vero iusto nostrum veritatis autem.</p>
             </div>

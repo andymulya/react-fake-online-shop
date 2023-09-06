@@ -36,8 +36,8 @@ export function Login(){
             <form onSubmit={ handleSubmitSignIn } className="flex flex-col gap-5">
                 <TextInput refInput={usernameRef} typeInput={"text"} placeholder={"Username"} />
                 <TextInput refInput={passRef} typeInput={"password"} placeholder={"Password"} />
-                <ButtonSolid style={"bg-[#146C94] hover:bg-cyan-700 text-base-100"}>Login</ButtonSolid>
+                <ButtonSolid style={"bg-navy hover:bg-cyan-600 text-base-100"}>Login</ButtonSolid>
             </form>
-            <Link to={'/register'} className="text-sm font-semibold text-[#146C94] uppercase hover:underline">Sign Up</Link>
+            <Link to={'/register'} className="text-sm font-semibold text-navy uppercase hover:underline">Sign Up</Link>
         </LayoutSign>
 }

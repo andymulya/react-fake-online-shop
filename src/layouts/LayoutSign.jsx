@@ -3,7 +3,7 @@ import onlineShopping from '../assets/img/online_shopping.png'
 export default function LayoutSign({ children }){
     return(
         <div className="flex flex-col md:flex-row gap-10 h-1/2">
-            <div className="bg-[#146C94] md:w-2/3 rounded-br-full z-10 h-2/4">
+            <div className="bg-navy md:w-2/3 rounded-br-full z-10 h-2/4">
                 <img src={ onlineShopping } className=""/>
             </div>
             <div className="md:w-2/4 z-10 flex flex-col justify-center items-center gap-10 px-5 pb-14">

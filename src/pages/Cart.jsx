@@ -44,7 +44,7 @@ export default function Cart(){
         <LayoutNavAndFooter>
             <ButtonBack />
 
-            <div className="flex flex-col sm:flex-row gap-10 sm:gap-0 mt-10">
+            <div className="flex flex-col sm:flex-row gap-10 sm:gap-0 mt-5 px-5">
 
                 <div className="w-auto sm:w-2/3">
                     <Title nameTitle={"Cart"} />
@@ -84,7 +84,7 @@ export default function Cart(){
                             </div>
                         </div>
 
-                        <div>
+                        <div className="flex justify-center">
                             <form onSubmit={(e) => {e.preventDefault()}} className="flex flex-col gap-5" >
                                 <div className="flex flex-col">
                                     <label>Name On Card:</label>
@@ -99,7 +99,7 @@ export default function Cart(){
                                 <div className="flex flex-col gap-5 sm:flex-row">
                                     <div className="flex flex-col">
                                         <label>Expiration Date:</label>
-                                        <div className="flex flex-row">
+                                        <div className="flex flex-row max-w-xs">
                                             <TextInput typeInput={"number"} placeholder={"MM"} />
                                             <TextInput typeInput={"number"} placeholder={"YYYY"} />
                                         </div>
