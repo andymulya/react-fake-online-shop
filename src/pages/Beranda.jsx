@@ -2,7 +2,7 @@ import ProductList from '../components/beranda/ProductList'
 import CategoryList from '../components/beranda/CategoryList'
 import Title from '../components/Title'
 import LayoutNavAndFooter from '../layouts/LayoutNavAndFooter'
-import Banner from '../components/Banner'
+import Banner from '../components/beranda/Banner'
 
 export default function Beranda(){
 
