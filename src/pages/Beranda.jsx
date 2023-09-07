@@ -10,16 +10,14 @@ export default function Beranda(){
         <LayoutNavAndFooter>
             <Banner />
             
-            <div className="flex flex-col gap-10 px-5 py-10">
-                <div>
-                    <Title nameTitle={"Category"} />
-                    <div className="flex flex-row flex-wrap justify-center md:justify-start gap-5">
-                        <CategoryList />
-                    </div>
+            <div className="flex flex-col gap-10 px-10 py-10">
+                <div className="flex flex-row flex-wrap justify-center gap-5">
+                    <CategoryList />
                 </div>
+                
                 <div id="products">
                     <Title nameTitle={"Products"} />
-                    <div className="flex flex-row flex-wrap gap-10 justify-center">
+                    <div className="flex flex-row flex-wrap gap-10 justify-center mt-10">
                         <ProductList />
                     </div>
                 </div>

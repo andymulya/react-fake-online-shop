@@ -16,9 +16,9 @@ export default function ProductList(){
             const { id, title, price, category, image } = product
 
             return(
-                <CardProduct key={ id } productId={id}>
+                <CardProduct key={ id } productId={id} titleProduct={title} priceProduct={price} categoryProduct={category}>
                     <CardProduct.Head>
-                        <img src={ image } alt='product' className="h-60 w-auto object-cover transition-all scale-90 group-hover:scale-105" />
+                        <img src={ image } alt='product' className="h-60 w-auto object-cover transition-all scale-100 group-hover:scale-110" />
                     </CardProduct.Head>
                     <CardProduct.Body titleProduct={ title } priceProduct={ price } categoryProduct={ category } />
                 </CardProduct>
