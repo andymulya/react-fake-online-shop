@@ -8,8 +8,10 @@ export default function ButtonBack(){
     const handleButtonBack = () => navigate(-1)
 
     return(
-        <ButtonGhost handleClick={ handleButtonBack }>
-            <img src={iconBack} alt="back" className="w-[40px]" />
-        </ButtonGhost>
+        <div className="mx-3 mt-20">
+            <ButtonGhost handleClick={ handleButtonBack }>
+                <img src={iconBack} alt="back" className="w-[40px]" />
+            </ButtonGhost>
+        </div>
     )
 }

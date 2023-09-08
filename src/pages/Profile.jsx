@@ -3,14 +3,18 @@ import { getToken } from "../services/localStorageServices"
 import { useGetUserWithIdQuery } from "../redux/slices/storeSlice"
 import Loading from '../components/Loading'
 import { useNavigate } from "react-router-dom"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import ProfileComponent from "../components/profile/ProfileComponent"
-import InfoUserComponent from "../components/profile/InfoUserComponent"
 import Title from '../components/Title'
 import ButtonBack from "../components/ButtonBack"
+import ButtonSolid from "../components/ButtonSolid"
+import InfoUserList from "../components/profile/InfoUserList"
+import IconEdit from "../assets/img/edit.png"
+import ButtonGhost from "../components/ButtonGhost"
 
 export default function Profile(){
     const userId = getToken().sub
+    const [isEdited, setEdited] = useState(false)
     const navigate = useNavigate()
     const { data, isLoading } = useGetUserWithIdQuery(userId)
     
@@ -22,34 +26,34 @@ export default function Profile(){
         <LayoutNavAndFooter>
             <ButtonBack />
             
-            <div className="mt-5 px-5">
+            <div className="mt-5 px-10">
                 <Title nameTitle={"Profile"}/>
-                <p className="text-xs mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut a id vero iusto nostrum veritatis autem.</p>
+                <p className="text-xs mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut a id vero iusto nostrum veritatis autem.</p>
             </div>
 
             <div className="flex justify-center">
                 {
                     (isLoading) ?
-                        <Loading /> : 
+                        <Loading /> :
                         (data) ?
                             <ProfileComponent>
                                 <ProfileComponent.Head title={ `${data.name.firstname} ${data.name.lastname}` } />
+                                
                                 <ProfileComponent.Body>
                                     
-                                    <InfoUserComponent label={"Username"} value={ data.username } />
-                                    <InfoUserComponent label={"First Name"} value={ data.name.firstname } />
-                                    <InfoUserComponent label={"Last Name"} value={ data.name.lastname } />
-                                    <InfoUserComponent label={"Email"} value={ data.email } />
-                                    <InfoUserComponent label={"Phone"} value={ data.phone } />
-                                    <InfoUserComponent label={"City"} value={ data.address.city } />
-                                    <InfoUserComponent label={"Street"} value={ data.address.street } />
-                                    <InfoUserComponent label={"Zip Code"} value={ data.address.zipcode } />
+                                    <InfoUserList data={data} isEdited={isEdited}/>
 
                                 </ProfileComponent.Body>
+
+                                <ButtonSolid style={"btn-circle bg-navy p-3 absolute -top-5 -right-5 hover:bg-cyan-800"} handleOnClick={() => setEdited((prev) => !prev)}>
+                                    <img src={IconEdit} className="w-[50px]"/>
+                                </ButtonSolid>
+
                             </ProfileComponent> :
                             <h1>Data Profile tidak ada</h1>
                 }
             </div>
+            
 
         </LayoutNavAndFooter>
     )
