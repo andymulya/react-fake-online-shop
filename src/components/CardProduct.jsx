@@ -23,11 +23,9 @@ const Head = ({ children }) => {
 
 const Body = ({ titleProduct, priceProduct, categoryProduct }) => {
     return (
-        <div className="card-body h-44 flex flex-col justify-around bg-sky-100/70 absolute left-0 right-0 bottom-0 transition-all opacity-0 group-hover:opacity-100">
-            <h2 className="card-title">
-                <span className="text-sm">{ titleProduct }</span>
-            </h2>
-            <span className="font-semibold">{`$${priceProduct}`}</span>
+        <div className="card-body flex flex-col justify-around bg-black/50 absolute left-0 right-0 bottom-0 transition-all opacity-0 group-hover:opacity-100">
+            <h2 className="card-title text-sm font-bold text-sky-200">{ titleProduct }</h2>
+            <span className="font-semibold text-slate-100">{`$${priceProduct}`}</span>
             <div className="card-actions justify-end">
                 <Badge titleBadge={ categoryProduct } />
             </div>
