@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import Dropdown from './Dropdown'
 import iconAvatarDefault from '../assets/img/avatar_default.webp'
-import ButtonOutline from './ButtonOutline'
+import ButtonSolid from './ButtonSolid'
 import { getToken } from '../services/localStorageServices'
 import ButtonGhost from './ButtonGhost'
 import { useDispatch, useSelector } from 'react-redux'
@@ -78,9 +78,7 @@ export default function Navbar(){
                             <Dropdown.ItemsDropdown navItems={ navItems } />
                         </Dropdown>
                     </div> : 
-                    <ButtonOutline handleClick={ handleNavigateLogin }>
-                        <span>Log In</span>
-                    </ButtonOutline>  
+                    <ButtonSolid style={"btn-xs btn-ghost text-navy hover:bg-navy hover:text-white"} handleOnClick={handleNavigateLogin} >Login</ButtonSolid>
                 }
             </div>
         </div>

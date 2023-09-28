@@ -60,7 +60,7 @@ export default function DetailProduct(){
                             <img src={ data.image } className="object-cover h-72 sm:h-96 w-auto"/>
                         </figure>
 
-                        <div className="flex flex-col items-center gap-3 my-10 md:w-[450px]">
+                        <div className="flex flex-col items-center gap-3 my-10 mx-5 md:w-[450px]">
                             <h1 className="font-bold text-ellipsis sm:text-lg md:text-2xl">{ data.title }</h1>
                             <h2 className="uppercase text-sm font-semibold">{ data.category }</h2>
                             <span className="font-bold">${ data.price }</span>
@@ -80,7 +80,7 @@ export default function DetailProduct(){
                                         <p>Do you want to add this item ?</p>
                                         <div className="modal-action">
                                             <ButtonOutline>No</ButtonOutline>
-                                            <ButtonSolid handleOnClick={ handleAddToCart } style={"bg-cyan-500 hover:bg-cyan-700"}>Yes</ButtonSolid>
+                                            <ButtonSolid handleOnClick={ handleAddToCart } style={"bg-cyan-500 hover:bg-cyan-700 text-white"}>Yes</ButtonSolid>
                                         </div>
                                     </Modal.Body>
                                 </Modal>

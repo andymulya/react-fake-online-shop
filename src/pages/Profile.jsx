@@ -7,14 +7,10 @@ import { useEffect, useState } from "react"
 import ProfileComponent from "../components/profile/ProfileComponent"
 import Title from '../components/Title'
 import ButtonBack from "../components/ButtonBack"
-import ButtonSolid from "../components/ButtonSolid"
 import InfoUserList from "../components/profile/InfoUserList"
-import IconEdit from "../assets/img/edit.png"
-import ButtonGhost from "../components/ButtonGhost"
 
 export default function Profile(){
     const userId = getToken().sub
-    const [isEdited, setEdited] = useState(false)
     const navigate = useNavigate()
     const { data, isLoading } = useGetUserWithIdQuery(userId)
     
@@ -41,13 +37,9 @@ export default function Profile(){
                                 
                                 <ProfileComponent.Body>
                                     
-                                    <InfoUserList data={data} isEdited={isEdited}/>
+                                    <InfoUserList data={data} />
 
                                 </ProfileComponent.Body>
-
-                                <ButtonSolid style={"btn-circle bg-navy p-3 absolute -top-5 -right-5 hover:bg-cyan-800"} handleOnClick={() => setEdited((prev) => !prev)}>
-                                    <img src={IconEdit} className="w-[50px]"/>
-                                </ButtonSolid>
 
                             </ProfileComponent> :
                             <h1>Data Profile tidak ada</h1>

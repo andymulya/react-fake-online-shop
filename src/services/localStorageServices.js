@@ -6,6 +6,6 @@ export const getToken = () => {
         if(token) return jwtDecode(token)
     }catch(e){
         localStorage.removeItem('token')
-        console.log(e.message)
+        console.error(e.message)
     }
 }
