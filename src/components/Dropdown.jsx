@@ -31,9 +31,9 @@ const ItemsDropdown = ({ navItems }) => {
         localStorage.removeItem('token')
     }
 
-    const currentQty = carts.reduce((acc, currentValue) => {
+    const currentQty = (carts) ? carts.reduce((acc, currentValue) => {
         return acc + currentValue.qty
-    }, 0)
+    }, 0) : 0
 
     return (
         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">

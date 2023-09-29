@@ -5,15 +5,16 @@ export const cartSlice = createSlice({
     initialState: [],
     reducers: {
         addCart(state, action){
-            const findItemInCart = state.find((item) => item.id == action.payload.id)
+            const findItemInCart = state.find((product) => product.id == action.payload.id)
             if(findItemInCart){
                 findItemInCart.qty++
             }else{
                 state.push(action.payload)
             }
+            console.log(findItemInCart)
         },
         addInitialState(state, action){
-            state = action.payload
+            state = (action.payload) ? action.payload : []
             return state
         },
         editValueQtyItemById(state, action){

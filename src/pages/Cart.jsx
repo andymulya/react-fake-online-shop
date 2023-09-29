@@ -26,9 +26,9 @@ export default function Cart(){
         dispatch(removeAllItemCart())
     }
 
-    const currentPrice = carts.reduce((acc, currentValue) => {
+    const currentPrice = (carts) ? carts.reduce((acc, currentValue) => {
         return acc + (currentValue.price * currentValue.qty)
-    },0)
+    },0) : 0
 
     useEffect(() => {
         if(!getToken()) navigate('/login')

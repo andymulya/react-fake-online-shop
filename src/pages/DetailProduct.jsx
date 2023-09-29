@@ -41,7 +41,7 @@ export default function DetailProduct(){
             navigate('/login')
         }
     }
-
+    
     useEffect(() => {
         (isTrigger) && localStorage.setItem(token.sub, JSON.stringify(carts))
         dispatch(handleIsTrigger(false))
