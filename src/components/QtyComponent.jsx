@@ -18,7 +18,6 @@ export default function QtyComponent({ qty, idItem }){
     }
 
     const handleButtonMin = () => {
-        
         setCounter(--counter)
         dispatch(editValueQtyItemById({
             counter,
